@@ -30,4 +30,9 @@ export class App {
   constructor(public router: Router, public location:Location) {
 	this.title = "Share Trading"
   }
+
+  logout() {
+    localStorage.removeItem('jwt');
+    this.router.navigateByUrl('/login');
+  }
 }

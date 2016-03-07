@@ -26,7 +26,7 @@ export class Login {
       .subscribe(
         response => {
           localStorage.setItem('jwt', response.json().id_token);
-          this.router.parent.navigateByUrl('/home');
+          this.router.parent.navigateByUrl('/');
         },
         error => {
           alert(error.text());

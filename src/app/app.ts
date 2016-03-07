@@ -1,5 +1,5 @@
 import {View, Component} from 'angular2/core';
-import {Location, RouteConfig, RouterLink, Router} from 'angular2/router';
+import {Location, RouteConfig, RouterLink, Router, ROUTER_DIRECTIVES} from 'angular2/router';
 
 import {LoggedInRouterOutlet} from './LoggedInOutlet';
 import {Home} from '../home/home';
@@ -14,7 +14,7 @@ let template = require('./app.html');
 })
 @View({
   template: template,
-  directives: [ LoggedInRouterOutlet ]
+  directives: [ LoggedInRouterOutlet, ROUTER_DIRECTIVES ]
 })
 @RouteConfig([
   { path: '/', redirectTo: ['/Home'] },
@@ -27,7 +27,7 @@ let template = require('./app.html');
 export class App {
   title: string;
   
-  constructor(public router: Router) {
+  constructor(public router: Router, public location:Location) {
 	this.title = "Share Trading"
   }
 }
